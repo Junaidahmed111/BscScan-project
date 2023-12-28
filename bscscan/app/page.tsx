@@ -11,6 +11,7 @@ export default function Home() {
           Here is the latest information about a new token and its price
         </h2>
       </div>
+      <div className=""></div>
     </main>
   );
 }
