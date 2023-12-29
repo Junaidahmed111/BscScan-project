@@ -20,8 +20,8 @@ export default function Home() {
   });
 
   return (
-    <main className="flex flex-col justify-center items-center mx-8 ">
-      <div className="flex flex-col">
+    <main className="flex flex-col justify-center items-center bg-pink-500 h-screen">
+      <div className="flex flex-col  mx-8">
         <h1 className="flex justify-center items-center content-center  my-4 font-bold font-sans text-2xl">
           Welcome!
         </h1>
@@ -30,7 +30,7 @@ export default function Home() {
           BEP-20 token
         </h2>
       </div>
-      <div className="border-2 p-4 shadow-md border-black">
+      <div className="border-2 p-4 shadow-md border-black bg-pink-300">
         {tokenInfo && <TokenInfo amount={tokenInfo} />}
       </div>
     </main>
