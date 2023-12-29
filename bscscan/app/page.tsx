@@ -1,17 +1,36 @@
-import Image from "next/image";
+"use client";
+import TokenInfo from "@/components/TokenInfo";
+import { fetchTokenInfo } from "@/utils/api";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [tokenInfo, setTokenInfo] = useState(null);
+  // const [tokenInfo, setTokenInfo] = useState<TokenInfoProps | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchTokenInfo();
+      console.log(data);
+      console.log("ok");
+      if (data) {
+        setTokenInfo(data.result);
+      }
+    };
+    fetchData();
+  });
+
   return (
-    <main className="flex justify-center bg-orange-200 ">
+    <main className="flex flex-col justify-center items-center ">
       <div className="flex flex-col">
-        <h1 className="flex justify-center items-center content-center bg-slate-500 my-4 font-bold font-sans text-2xl">
+        <h1 className="flex justify-center items-center content-center  my-4 font-bold font-sans text-2xl">
           Welcome!
         </h1>
-        <h2 className="flex justify-center items-center content-center bg-slate-500 my-4 font-bold font-sans text-2xl">
-          Here is the latest information about a new token and its price
+        <h2 className="flex justify-center items-center content-center  my-4 font-bold font-sans text-2xl">
+          Here is the latest information about current circulating price of a
+          BEP-20 token
         </h2>
       </div>
-      <div className=""></div>
+      <div className="">{tokenInfo && <TokenInfo amount={tokenInfo} />}</div>
     </main>
   );
 }
