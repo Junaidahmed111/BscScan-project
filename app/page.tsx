@@ -30,7 +30,7 @@ export default function Home() {
           BEP-20 token
         </h2>
       </div>
-      <div className="border-2 p-4 shadow-md border-black bg-slate-300">
+      <div className="border-2 p-5 shadow-2xl border-yellow-950 bg-slate-300">
         {tokenInfo && <TokenInfo amount={tokenInfo} />}
       </div>
     </main>

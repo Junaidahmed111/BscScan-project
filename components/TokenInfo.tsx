@@ -4,7 +4,7 @@ interface TokenInfoProps {
 }
 const TokenInfo = ({ amount }: TokenInfoProps) => {
   return (
-    <div className="">
+    <div>
       <h2>{amount}</h2>
     </div>
   );
