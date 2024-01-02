@@ -2,7 +2,7 @@ import React from "react";
 interface TokenInfoProps {
   validators: {
     validatorAddress: string;
-    validatingVotingPower: number;
+    validatorVotingPower: string;
   }[];
 }
 const TokenInfo = ({ validators }: TokenInfoProps) => {
@@ -11,7 +11,7 @@ const TokenInfo = ({ validators }: TokenInfoProps) => {
       {validators.map((validator, index) => (
         <div key={index} className="flex flex-col">
           <span> Validator Address: {validator.validatorAddress}</span>
-          <span> Voting Power{validator.validatingVotingPower}</span>
+          <span> Voting Power: {validator.validatorVotingPower}</span>
         </div>
       ))}
     </div>
