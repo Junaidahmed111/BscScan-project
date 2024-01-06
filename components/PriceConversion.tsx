@@ -1,19 +1,26 @@
 // components/PriceConversion.tsx
 import React from "react";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 interface ConversionProps {
-  [currency: string]: {
-    pkr: number;
-    pkr_24h_change: number;
-    last_updated_at: number;
-  };
+  conversions: {
+    [currency: string]: {
+      pkr: number;
+      pkr_24h_change: number;
+      last_updated_at: number;
+    };
+  } | null;
 }
 
 const PriceConversion: React.FC<ConversionProps> = ({ conversions }) => {
+  if (!conversions || Object.keys(conversions).length === 0) {
+    return <AiOutlineLoading3Quarters className="animate-spin" />;
+  }
+
   return (
     <div className="flex flex-col">
       {Object.entries(conversions).map(([currency, currencyData]) => (
-        <div key={currency} className="flex flex-col">
+        <div key={currency} className="flex flex-col my-4">
           <span>The name of the coin is {currency}</span>
           <span>Its price in PKR is {currencyData.pkr}</span>
           <span>

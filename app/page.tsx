@@ -9,16 +9,15 @@ import { Result } from "postcss";
 
 export default function Home() {
   const [tokenInfo, setTokenInfo] = useState([]);
-  const [priceConversion, setPriceConversion] = useState([]);
+  const [priceConversion, setPriceConversion] = useState(null);
 
-  // useEffect for price conversion
   useEffect(() => {
     const fetchConversion = async () => {
       const theData = await fetchConversionApi();
       console.log(theData);
-      console.log("good dataa");
+      console.log("good data");
       if (theData) {
-        setPriceConversion(theData.result);
+        setPriceConversion(theData);
       }
     };
     fetchConversion();
@@ -53,11 +52,11 @@ export default function Home() {
       </div> */}
 
       <div className="flex justify-center">
-        {<TokenInfo validators={tokenInfo} />}
+        <TokenInfo validators={tokenInfo} />
       </div>
-      {/* <div className="flex ">
-        {<PriceConversion conversions={priceConversion} />}
-      </div> */}
+      <div className="flex ">
+        <PriceConversion conversions={priceConversion} />
+      </div>
     </main>
   );
 }
