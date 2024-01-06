@@ -5,11 +5,26 @@ import TokenInfo from "@/components/TokenInfo";
 import { fetchTheTokenInfo } from "@/utils/secondAPI";
 import { fetchConversionApi } from "@/utils/priceConAPI";
 import PriceConversion from "@/components/PriceConversion";
+import { Result } from "postcss";
 
 export default function Home() {
   const [tokenInfo, setTokenInfo] = useState([]);
-  const [];
+  const [priceConversion, setPriceConversion] = useState([]);
 
+  // useEffect for price conversion
+  useEffect(() => {
+    const fetchConversion = async () => {
+      const theData = await fetchConversionApi();
+      console.log(theData);
+      console.log("good dataa");
+      if (theData) {
+        setPriceConversion(theData.result);
+      }
+    };
+    fetchConversion();
+  }, []);
+
+  // useEffect for token info
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchTheTokenInfo();
@@ -40,6 +55,9 @@ export default function Home() {
       <div className="flex justify-center">
         {<TokenInfo validators={tokenInfo} />}
       </div>
+      {/* <div className="flex ">
+        {<PriceConversion conversions={priceConversion} />}
+      </div> */}
     </main>
   );
 }

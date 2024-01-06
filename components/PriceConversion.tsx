@@ -1,28 +1,26 @@
+// components/PriceConversion.tsx
 import React from "react";
 
 interface ConversionProps {
-  conversions: {
-    ids: string;
-    vs_currency: string;
-    include_24hr_change: string;
-    include_last_updated_at: string;
-  }[];
+  [currency: string]: {
+    pkr: number;
+    pkr_24h_change: number;
+    last_updated_at: number;
+  };
 }
 
-const PriceConversion = ({ conversions }: ConversionProps) => {
+const PriceConversion: React.FC<ConversionProps> = ({ conversions }) => {
   return (
     <div className="flex flex-col">
-      {conversions.map((exchangeCoin, index) => (
-        <div key={index} className="flex flex-col">
-          <span>The name of the coin is {exchangeCoin.ids}</span>
-          <span>Its price in PKR is {exchangeCoin.vs_currency}</span>
+      {Object.entries(conversions).map(([currency, currencyData]) => (
+        <div key={currency} className="flex flex-col">
+          <span>The name of the coin is {currency}</span>
+          <span>Its price in PKR is {currencyData.pkr}</span>
           <span>
-            The chnage in price in last 24 hours in PKR is{" "}
-            {exchangeCoin.include_24hr_change}{" "}
+            The change in price in the last 24 hours in PKR is{" "}
+            {currencyData.pkr_24h_change}
           </span>
-          <span>
-            Its last price updated at {exchangeCoin.include_last_updated_at}
-          </span>
+          <span>Its last price updated at {currencyData.last_updated_at}</span>
         </div>
       ))}
     </div>
