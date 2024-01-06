@@ -1,11 +1,14 @@
 "use client";
+import { useEffect, useState } from "react";
 import TokenInfo from "@/components/TokenInfo";
 // import { fetchTokenInfo } from "@/utils/api";
 import { fetchTheTokenInfo } from "@/utils/secondAPI";
-import { useEffect, useState } from "react";
+import { fetchConversionApi } from "@/utils/priceConAPI";
+import PriceConversion from "@/components/PriceConversion";
 
 export default function Home() {
   const [tokenInfo, setTokenInfo] = useState([]);
+  const [];
 
   useEffect(() => {
     const fetchData = async () => {
