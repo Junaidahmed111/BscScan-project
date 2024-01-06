@@ -26,8 +26,8 @@ export default function Home() {
           Welcome!
         </h1>
         <h2 className="flex justify-center items-center content-center  my-4 font-bold font-sans text-2xl">
-          Here is the latest information about current circulating price of a
-          BEP-20 token
+          Here is the latest information about top 21 validators on BNB Smart
+          Chain
         </h2>
       </div>
       {/* <div className="border-2 p-5 shadow-2xl border-yellow-950 bg-slate-300">
