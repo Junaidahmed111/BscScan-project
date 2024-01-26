@@ -46,9 +46,6 @@ export default function Home() {
           Chain
         </h2>
       </div>
-      {/* <div className="border-2 p-5 shadow-2xl border-yellow-950 bg-slate-300">
-        {tokenInfo && <TokenInfo amount={tokenInfo} />}
-      </div> */}
 
       <div className="flex justify-center">
         <TokenInfo validators={tokenInfo} />
