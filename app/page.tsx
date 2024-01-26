@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import TokenInfo from "@/components/TokenInfo";
-// import { fetchTokenInfo } from "@/utils/api";
 import { fetchTheTokenInfo } from "@/utils/secondAPI";
 import { fetchConversionApi } from "@/utils/priceConAPI";
 import PriceConversion from "@/components/PriceConversion";
